@@ -10,7 +10,7 @@ Search for [Yamaha RX Function Tree] to find an Excel workbook that defines all 
 ## Usage
 ```
 >>> from avr import YamahaAPI
->>> api = YamahaAPI("http://192.168.178.31/YamahaRemoteControl/ctrl")
+>>> api = YamahaAPI("http://<AVR_IP>/YamahaRemoteControl/ctrl")
 >>>
 >>> # Get power status
 >>> api.Main_Zone.Power_Control.Power.get()
@@ -30,8 +30,12 @@ Unit=dB
 Val=-410
 >>>
 >>> # Another way to create commands
->>> api.create_command("Main_Zone.Volume.Lvl")
-<Command 'Main_Zone.Volume.Lvl' at 0x299b780L>
+>>> cmd = api.create_command("Main_Zone.Volume.Lvl")
+>>> print(cmd.get())
+Exp=1
+Unit=dB
+Val=-400
+>>> cmd.put({ "Val": "Up 1 dB", "Exp":"", "Unit":"" })
 ```
 
 ## Optional command definition file
