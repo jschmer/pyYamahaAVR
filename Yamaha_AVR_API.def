@@ -1,0 +1,398 @@
+{
+    'System': {
+        'Config': {
+            'GET': True,
+            'PUT': False
+        },
+        'Power_Control': {
+            'Power': {
+                'GET': True,
+                'PUT': ["Standby", "On"]
+            },
+            'Auto_Power_Down': { 
+                'Timer': {
+                    'GET': True,
+                    'PUT': ["Off","4 Hr","8 Hr","12 Hr"]
+                }
+            }
+        },
+        'Party_Mode': {
+            'Mode': {
+                'GET': True,
+                'PUT': ["Off","On"]
+            },
+            'Target_Zone': {
+                'GET': True,
+                'PUT': {
+                    'Zone_2': ["Disable","Enable"],
+                    'Zone_3': ["Disable","Enable"],
+                    'Zone_4': ["Disable","Enable"]
+                }
+            },
+            'Volume': {
+                'Lvl': {
+                    'GET': False,
+                    'PUT': ["Down","Up"]
+                },
+                'Mute': {
+                    'GET': False,
+                    'PUT': ["Off","On"]
+                }
+            }
+        },
+        'Sound_Video': {
+            'Analog_Conversion': {
+                'GET': True,
+                'PUT': ["Off","On"]
+            },
+            'Dual_Mono': {
+                'GET': True,
+                'PUT': ["All","Main","Sub"]
+            },
+            'Dynamic_Range': {
+                'GET': True,
+                'PUT': ["MAX","STD","MIN/AUTO"]
+            }
+        },
+        'Misc': {
+            'Display': {
+                'Language': {
+                    'GET': True,
+                    'PUT': ["English","Japanese","French","German","Spanish","Russian"]
+                },
+                'Wall_Paper': {
+                    'GET': True,
+                    'PUT': ["Picture 1","Picture 2","Picture 3","Gray"]
+                },
+                'FL': {
+                    'GET': True,
+                    'PUT': {
+                        'Dimmer': str,
+                        'Scroll': ["Continue","Once"]
+                    }
+                },
+                'Internal_Data': {
+                    'GET': True,
+                    'PUT': str
+                },
+                'Short_Message': {
+                    'GET': True,
+                    'PUT': ["Off","On"]
+                }
+            },
+            'Network': {
+                'Network_Standby': {
+                    'GET': True,
+                    'PUT': ["Off","On"]
+                },
+                'IP': {
+                    'GET': True,
+                    'PUT': {
+                        'DHCP': ["Off","On"],
+                        'IP_Address': str,
+                        'Subnet_Mask': str,
+                        'Default_Gateway': str,
+                        'DNS_Server_1': str,
+                        'DNS_Server_2': str,
+                    }
+                },
+                'Info': {
+                    'GET': True,
+                    'PUT': False
+                },
+                'MAC_Address_Filter': {
+                    'GET': True,
+                    'PUT': {
+                        'Mode': ["On"],
+                        'Address': {
+                            'Number_1': str,
+                            'Number_2': str,
+                            'Number_3': str,
+                            'Number_4': str,
+                            'Number_5': str,
+                            'Number_6': str,
+                            'Number_7': str,
+                            'Number_8': str,
+                            'Number_9': str,
+                            'Number_10': str,
+                        }
+                    }
+                },
+                'Update': {
+                    'Status': {
+                        'GET': True,
+                        'PUT': False
+                    }
+                },
+                'DMC_Control': {
+                    'GET': True,
+                    'PUT': ["Disable","Enable"]
+                },
+                'UPnP_Friendly_Name': {
+                    'GET': True,
+                    'PUT': str
+                },
+                'YNCA_Port': {
+                    'GET': True,
+                    'PUT': str
+                }
+            },
+            'Trig_Out': {
+                'Trig_1': {
+                    'Manual_Control': {
+                        'GET': True,
+                        'PUT': ["Lo","Hi"]
+                    },
+                    'Type': {
+                        'GET': True,
+                        'PUT': ["Manual","Power","Zone and Input"]
+                    },
+                    'Zone': {
+                        'GET': True,
+                        'PUT': ["Main Zone","Zone2","Zone3","Zone4","All"]
+                    },
+                    'Input': {
+                        'GET': True,
+                        'PUT': {
+                            'SIRIUS': ["Lo","Hi"],
+                            'TUNER': ["Lo","Hi"],
+                            'MULTI_CH': ["Lo","Hi"],
+                            'PHONO': ["Lo","Hi"],
+                            'HDMI_1': ["Lo","Hi"],
+                            'HDMI_2': ["Lo","Hi"],
+                            'HDMI_3': ["Lo","Hi"],
+                            'HDMI_4': ["Lo","Hi"],
+                            'HDMI_5': ["Lo","Hi"],
+                            'HDMI_6': ["Lo","Hi"],
+                            'HDMI_7': ["Lo","Hi"],
+                            'AV_1': ["Lo","Hi"],
+                            'AV_2': ["Lo","Hi"],
+                            'AV_3': ["Lo","Hi"],
+                            'AV_4': ["Lo","Hi"],
+                            'AV_5': ["Lo","Hi"],
+                            'AV_6': ["Lo","Hi"],
+                            'AV_7': ["Lo","Hi"],
+                            'V_AUX': ["Lo","Hi"],
+                            'AUDIO_1': ["Lo","Hi"],
+                            'AUDIO_2': ["Lo","Hi"],
+                            'AUDIO_3': ["Lo","Hi"],
+                            'AUDIO_4': ["Lo","Hi"],
+                            'DOCK': ["Lo","Hi"],
+                            'Rhapsody': ["Lo","Hi"],
+                            'SIRIUS_IR': ["Lo","Hi"],
+                            'Pandora': ["Lo","Hi"],
+                            'Napster': ["Lo","Hi"],
+                            'PC': ["Lo","Hi"],
+                            'NET_RADIO': ["Lo","Hi"],
+                            'USB': ["Lo","Hi"]
+                        }
+                    }
+                },
+                'Trig_2': {
+                    'Manual_Control': {
+                        'GET': True,
+                        'PUT': ["Lo","Hi"]
+                    },
+                    'Type': {
+                        'GET': True,
+                        'PUT': ["Manual","Power","Zone and Input"]
+                    },
+                    'Zone': {
+                        'GET': True,
+                        'PUT': ["Main Zone","Zone2","Zone3","Zone4","All"]
+                    },
+                    'Input': {
+                        'GET': True,
+                        'PUT': {
+                            'SIRIUS': ["Lo","Hi"],
+                            'TUNER': ["Lo","Hi"],
+                            'MULTI_CH': ["Lo","Hi"],
+                            'PHONO': ["Lo","Hi"],
+                            'HDMI_1': ["Lo","Hi"],
+                            'HDMI_2': ["Lo","Hi"],
+                            'HDMI_3': ["Lo","Hi"],
+                            'HDMI_4': ["Lo","Hi"],
+                            'HDMI_5': ["Lo","Hi"],
+                            'HDMI_6': ["Lo","Hi"],
+                            'HDMI_7': ["Lo","Hi"],
+                            'AV_1': ["Lo","Hi"],
+                            'AV_2': ["Lo","Hi"],
+                            'AV_3': ["Lo","Hi"],
+                            'AV_4': ["Lo","Hi"],
+                            'AV_5': ["Lo","Hi"],
+                            'AV_6': ["Lo","Hi"],
+                            'AV_7': ["Lo","Hi"],
+                            'V_AUX': ["Lo","Hi"],
+                            'AUDIO_1': ["Lo","Hi"],
+                            'AUDIO_2': ["Lo","Hi"],
+                            'AUDIO_3': ["Lo","Hi"],
+                            'AUDIO_4': ["Lo","Hi"],
+                            'DOCK': ["Lo","Hi"],
+                            'Rhapsody': ["Lo","Hi"],
+                            'SIRIUS_IR': ["Lo","Hi"],
+                            'Pandora': ["Lo","Hi"],
+                            'Napster': ["Lo","Hi"],
+                            'PC': ["Lo","Hi"],
+                            'NET_RADIO': ["Lo","Hi"],
+                            'USB': ["Lo","Hi"]
+                        }
+                    }
+                }
+            },
+            'Advanced_Setup': {
+                'Speaker_Impedance': {
+                    'GET': True,
+                    'PUT': ["6 Ohm MIN","8 Ohm MIN"]
+                },
+                'Remote_Sensor': {
+                    'GET': True,
+                    'PUT': ["Off","On"]
+                },
+                'Remote_Control_Amp_ID': {
+                    'GET': True,
+                    'PUT': ["ID1","ID2"]
+                },
+                'SIRIUS_LOCK_CODE': {
+                    'GET': True,
+                    'PUT': ["RESET","CANCEL"]
+                },
+                'Tuner_Freq_Step': {
+                    'GET': True,
+                    'PUT': ["FM50/AM9","FM100/AM10"]
+                },
+                'Initialize': {
+                    'GET': True,
+                    'PUT': ["Cancel","Video","All"]
+                },
+                'TV_Format': {
+                    'GET': True,
+                    'PUT': ["NTSC","PAL"]
+                },
+                'HDMI_Monitor_Check': {
+                    'GET': True,
+                    'PUT': ["Yes","Skip"]
+                }
+            },
+            'Memory_Guard': {
+                'GET': True,
+                'PUT': ["Off","On"]
+            },
+            'Remote_Signal': {
+                'Receive': {
+                    'GET': False,
+                    'PUT': {
+                        'Code': str
+                    }
+                }
+            },
+            'Event': {
+                'Notice': {
+                    'GET': True,
+                    'PUT': ["Off","On"]
+                }
+            },
+        },
+        'Unit_Desc': {
+            'GET': True,
+            'PUT': False
+        },
+        'Service_Info': {
+            'GET': True,
+            'PUT': False
+        }
+    },
+    'Main_Zone': {
+        'Config': {
+            'GET': True,
+            'PUT': False
+        },
+        'Basic_Status': {
+            'GET': True,
+            'PUT': False
+        },
+        'Power_Control': {
+            'Power': {
+                'GET': True,
+                'PUT': ["Standby", "On", "On/Standby"]
+            },
+            'Sleep': {
+                'GET': True,
+                'PUT': ["Off","30 min","60 min","90 min","120 min","Last"]
+            }
+        },
+        'Volume': {
+            'Lvl': {
+                'GET': True,
+                'PUT': {
+                    'Val': ["Down","Up","Down 1 dB","Up 1 dB","Down 2 dB","Up 2 dB","Down 5 dB","Up 5 dB"],
+                    'Exp': [""],
+                    'Unit': [""]
+                }
+            },
+            'Mute': {
+                'GET': True,
+                'PUT': ["On/Off"]
+            }
+        },
+        'Input': {
+            'Input_Sel': {
+                'GET': True,
+                'PUT': ["SIRIUS","TUNER","MULTI CH","PHONO","HDMI1","HDMI2","HDMI3","HDMI4","HDMI5","HDMI6","HDMI7","AV1","AV2","AV3","AV4","AV5","AV6","AV7","V-AUX","AUDIO1","AUDIO2","AUDIO3","AUDIO4","DOCK","iPod","Bluetooth","UAW","NET","Rhapsody","SIRIUS InternetRadio","Pandora","Napster","PC","NET RADIO","USB","iPod (USB)"]
+            },
+            'Input_Sel_Item_Info': {
+                'GET': True,
+                'PUT': False
+            },
+            'Input_Sel_Item': {
+                'GET': True,
+                'PUT': False
+            },
+            'Audio_Sel': {
+                'Current': {
+                    'GET': True,
+                    'PUT': ["Auto","HDMI","Coax/Opt","Analog"]
+                }
+            },
+            'Decoder_Sel': {
+                'Current': {
+                    'GET': True,
+                    'PUT': ["Auto","DTS","AAC"]
+                }
+            }
+        },
+        'Scene': {
+            'Scene_Load': {
+                'GET': False,
+                'PUT': ["Scene 1","Scene 2","Scene 3","Scene 4","Scene 5","Scene 6","Scene 7","Scene 8","Scene 9","Scene 10","Scene 11","Scene 12"]
+            },
+            'Scene_Save': {
+                'GET': False,
+                'PUT': ["Scene 1","Scene 2","Scene 3","Scene 4","Scene 5","Scene 6","Scene 7","Scene 8","Scene 9","Scene 10","Scene 11","Scene 12"]
+            },
+            'Scene_Sel': {
+                'GET': True,
+                'PUT': ["DOCK","NET","Scene 1","Scene 2","Scene 3","Scene 4","Scene 5","Scene 6","Scene 7","Scene 8","Scene 9","Scene 10","Scene 11","Scene 12"]
+            },
+            'Scene_Sel_Item': {
+                'GET': True,
+                'PUT': False
+            }
+        },
+        'Play_Control': {
+            'Playback': {
+                'GET': False,
+                'PUT': ["Stop","Pause","Play","Skip Rev","Skip Fwd"]
+            }
+        },
+        'List_Control': {
+            'Cursor': {
+                'GET': False,
+                'PUT': ["Down","Up","Left","Right","Sel","Back","Back to Home"]
+            },
+            'Menu_Control': {
+                'GET': False,
+                'PUT': ["On Screen","Top Menu","Menu","Option"]
+            }
+        }
+    }
+}
