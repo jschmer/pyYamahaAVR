@@ -3,6 +3,19 @@
 from sys import version_info
 from exception import ConfigException
 import xml.etree.ElementTree as ET
+import logging
+
+
+class LogMixin(object):
+    @property
+    def logger(self):
+        return logging.getLogger(self.__class__.__name__)
+
+
+def init_logging():
+    logging.getLogger("requests").setLevel(logging.WARNING)
+    logging.getLogger("urllib3").setLevel(logging.WARNING)
+    logging.basicConfig(level=logging.INFO, format='%(levelname)8s: %(name)s: %(message)s')
 
 
 def py_version():

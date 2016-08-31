@@ -83,7 +83,7 @@ class Command(object):
         return self.api_obj._put(self, param, **kwargs)
 
 
-class YamahaAPI(object):
+class YamahaAPI(util.LogMixin):
     """
     Main class to interact with your Yamaha AVR.
 
@@ -239,7 +239,7 @@ class YamahaAPI(object):
         # We are using a monkey-patched xml serialization method to stop emitting self-closed
         # elements because the Yamaha AVR doesn't like them, see func _serialize_xml_without_self_closed_elements
         payload_str = util.serialize_xml(xml_payload).decode('utf-8')
-        print("Request: {payload}".format(payload=payload_str))
+        self.logger.debug("Request: {payload}".format(payload=payload_str))
 
         res = requests.post(
             self.ctrl_url,
@@ -256,7 +256,7 @@ class YamahaAPI(object):
         except ET.ParseError as e:
             raise ResponseException("Invalid response: '{response}', Error: {err}".format(response=res.content, err=e))
 
-        print("Response: {response}".format(response=util.serialize_xml(response).decode('utf-8')))
+        self.logger.debug("Response: {response}".format(response=util.serialize_xml(response).decode('utf-8')))
         return response
 
     def _request_get(self, cmd_list):
@@ -341,7 +341,7 @@ class YamahaAPI(object):
 
     def _get(self, cmd_builder):
         self._check_get_command(cmd_builder)
-        print("GET: '{cmd}'".format(cmd=cmd_builder.command_str()))
+        self.logger.info("GET: '{cmd}'".format(cmd=cmd_builder.command_str()))
         return self._request_get(cmd_builder.cmd_list)
 
     def _put(self, cmd_builder, param=None, **kwargs):
@@ -352,5 +352,5 @@ class YamahaAPI(object):
         """
         used_param = param or kwargs
         self._check_put_command(cmd_builder, used_param)
-        print("""PUT: '{cmd}' = '{param}'""".format(cmd=cmd_builder.command_str(), param=used_param))
+        self.logger.info("""PUT: '{cmd}' = '{param}'""".format(cmd=cmd_builder.command_str(), param=used_param))
         self._request_put(cmd_builder.cmd_list, used_param)
