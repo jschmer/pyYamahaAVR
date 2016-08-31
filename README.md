@@ -3,9 +3,9 @@
 Easy to use generic python API to control your Yamaha AVR over the network.
 
 ## Basics
-The API does not provide predefined commands/methods but provides a dynamic way to generate a command on the fly. Responses from the receiver will be mapped to a result object that provides the result as attributes. See [Usage](#Usage) section to see this in action.
+The API does not provide predefined commands/methods but provides a dynamic way to generate a command on the fly. Responses from the receiver will be mapped to a result object that provides the result as attributes. See [Usage](#usage) section to see this in action.
 
-Search for [Yamaha RX Function Tree] to find an Excel workbook that defines all the commands that are supported. Or see the section [Optional command definition file](#Optional-command-definition-file) to get a subset of commands available.
+Search for [Yamaha RX Function Tree] to find an Excel workbook that defines all the commands that are supported. Or see the section [Optional command definition file](#optional-command-definition-file) to get a subset of commands available.
 
 ## Usage
 ```
