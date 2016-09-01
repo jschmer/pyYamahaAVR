@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from sys import version_info
-from exception import ConfigException
+from .exception import ConfigException
 import xml.etree.ElementTree as ET
 import logging
 
