@@ -3,7 +3,7 @@
 
 from .exception import *
 from .util import init_logging
-from avr import YamahaAPI
+from .avr import YamahaAPI
 
 __all__ = [
     'AVRException',
