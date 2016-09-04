@@ -1,10 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from __future__ import print_function, division, unicode_literals, absolute_import
-from .exception import *
-from . import util
+import os
 import requests
 import xml.etree.ElementTree as ET
+from .exception import *
+from . import util
 
 
 class Command(object):
@@ -111,12 +112,19 @@ class YamahaAPI(util.LogMixin):
         self.api_dict = None
         self.validate_requests = False
 
-    def load_api_dictionary(self, file):
+    def load_api_dictionary(self, file=None):
         """
         Load api dictionary that contains available commands.
         Used to create available command list and also needed for
         request validation.
         """
+        if not file:
+            # API.def should be installed alongside this file
+            file = os.path.join(
+                os.path.dirname(__file__),
+                'Yamaha_AVR_API.def'
+            )
+
         if hasattr(file, 'read'):
             self.api_dict = eval(file.read())
         else:
