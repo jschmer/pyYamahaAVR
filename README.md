@@ -45,7 +45,7 @@ Val=-400
 
 ## Optional command definition file
 You can also use and load a command definition file (see 'Yamaha_AVR_API.def') to be able to get a list of commands that are supported. This definition file is currenlty not complete and does not have all commands that your device supports. Pull requests for additional commands are welcome!
-After loading the file you can print all available commands to get an overview of what is supported. You can also enable request validation to help spotting errors when trying to change values on the device. Trying to send an invalid command will then generate an exception.
+After loading the file you can print all available commands to get an overview of what is supported. You can also enable request validation to help spotting errors when trying to send invalid commands. Doing so will then generate an exception.
 
 ```
 >>> api.load_api_dictionary()
