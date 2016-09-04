@@ -1,0 +1,2 @@
+include README.md
+include pyYamahaAVR\Yamaha_AVR_API.def
