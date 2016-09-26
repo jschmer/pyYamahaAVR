@@ -15,7 +15,7 @@ class LogMixin(object):
 def init_logging():
     logging.getLogger("requests").setLevel(logging.WARNING)
     logging.getLogger("urllib3").setLevel(logging.WARNING)
-    logging.basicConfig(level=logging.INFO, format='%(levelname)8s: %(name)s: %(message)s')
+    logging.basicConfig(level=logging.WARNING, format='%(levelname)8s: %(name)s: %(message)s')
 
 
 def py_version():
