@@ -130,6 +130,8 @@ class YamahaAPI(util.LogMixin):
         else:
             self.api_dict = eval(open(file, 'r').read())
 
+        self.logger.info("API dict loaded from path '{}'".format(file))
+
     def enable_request_validation(self, status=True):
         """
         Enables request validation with provided api dictionary.
@@ -137,6 +139,7 @@ class YamahaAPI(util.LogMixin):
         according to provided api dictionary.
         """
         if status and not self.api_dict:
+            self.logger.error("Tried to enable request validation without an API dictionary")
             raise ConfigException("Request validation needs an API dictionary loaded! See func 'load_api_dictionary'")
         self.validate_requests = status
 
@@ -348,9 +351,13 @@ class YamahaAPI(util.LogMixin):
         res = self._request(request_xml)
 
     def _get(self, cmd_builder):
-        self._check_get_command(cmd_builder)
-        self.logger.info("GET: '{cmd}'".format(cmd=cmd_builder.command_str()))
-        return self._request_get(cmd_builder.cmd_list)
+        try:
+            self._check_get_command(cmd_builder)
+            self.logger.info("[GET] '{cmd}'".format(cmd=cmd_builder.command_str()))
+            return self._request_get(cmd_builder.cmd_list)
+        except Exception:
+            self.logger.exception("[GET] Exception")
+            raise
 
     def _put(self, cmd_builder, param=None, **kwargs):
         """"
@@ -358,7 +365,11 @@ class YamahaAPI(util.LogMixin):
         The former is a PUT command with single parameter.
         The latter is a PUT command with multiple parameters.
         """
-        used_param = param or kwargs
-        self._check_put_command(cmd_builder, used_param)
-        self.logger.info("""PUT: '{cmd}' = '{param}'""".format(cmd=cmd_builder.command_str(), param=used_param))
-        self._request_put(cmd_builder.cmd_list, used_param)
+        try:
+            used_param = param or kwargs
+            self._check_put_command(cmd_builder, used_param)
+            self.logger.info("""[PUT] '{cmd}' = '{param}'""".format(cmd=cmd_builder.command_str(), param=used_param))
+            self._request_put(cmd_builder.cmd_list, used_param)
+        except Exception:
+            self.logger.exception("[PUT] Exception")
+            raise

@@ -6,16 +6,14 @@ import xml.etree.ElementTree as ET
 import logging
 
 
+def get_module_logger():
+    return logging.getLogger('pyYamahaAVR')
+
+
 class LogMixin(object):
     @property
     def logger(self):
-        return logging.getLogger(self.__class__.__name__)
-
-
-def init_logging():
-    logging.getLogger("requests").setLevel(logging.WARNING)
-    logging.getLogger("urllib3").setLevel(logging.WARNING)
-    logging.basicConfig(level=logging.WARNING, format='%(levelname)8s: %(name)s: %(message)s')
+        return get_module_logger().getChild(self.__class__.__name__)
 
 
 def py_version():

@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 
 from .exception import *
-from .util import init_logging
 from .avr import YamahaAPI
 
 __all__ = [
@@ -14,5 +13,4 @@ __all__ = [
     'ResponseException',
     'ValueNotSupportedException',
     'YamahaAPI',
-    'init_logging',
 ]
