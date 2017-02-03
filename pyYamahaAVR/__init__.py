@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import logging
 from .exception import *
 from .util import get_module_logger
 from .avr import YamahaAPI
