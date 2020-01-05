@@ -2,6 +2,8 @@
 
 Generic python API to control your Yamaha AVR over the network.
 
+Discontinued: Got to https://github.com/wuub/rxv to find an alternative.
+
 ## Basics
 The API does not provide predefined commands/methods but provides a dynamic way to generate a command on the fly. Responses from the receiver will be mapped to a result object that provides the result as attributes. See [Usage](#usage) section to see this in action.
 
